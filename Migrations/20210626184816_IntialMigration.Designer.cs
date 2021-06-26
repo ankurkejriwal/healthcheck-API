@@ -9,7 +9,7 @@ using healthcheck.API.Models;
 namespace healthcheck.API.Migrations
 {
     [DbContext(typeof(ApiContext))]
-    [Migration("20210625041203_IntialMigration")]
+    [Migration("20210626184816_IntialMigration")]
     partial class IntialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -63,7 +63,7 @@ namespace healthcheck.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Orders");
+                    b.ToTable("User");
                 });
 #pragma warning restore 612, 618
         }

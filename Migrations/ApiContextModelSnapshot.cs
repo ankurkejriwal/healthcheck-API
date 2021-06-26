@@ -61,7 +61,7 @@ namespace healthcheck.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Orders");
+                    b.ToTable("User");
                 });
 #pragma warning restore 612, 618
         }
