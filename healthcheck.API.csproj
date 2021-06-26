@@ -17,6 +17,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.3" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="5.0.0" />
+    <PackageReference Include="Newtonsoft.json" Version="13.0.1" />
     <PackageReference Include="npgsql.EntityFrameworkCore.PostgreSql" Version="5.0.7" />
   </ItemGroup>
 

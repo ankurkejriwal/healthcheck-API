@@ -17,7 +17,7 @@ namespace healthcheck.API
 {
     public class Startup
     {
-        private string _connectionString = "";
+        private string _connectionString;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;

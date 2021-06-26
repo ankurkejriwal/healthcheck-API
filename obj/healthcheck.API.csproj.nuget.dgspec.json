@@ -60,6 +60,10 @@
               "target": "Package",
               "version": "[5.0.0, )"
             },
+            "Newtonsoft.json": {
+              "target": "Package",
+              "version": "[*, )"
+            },
             "npgsql.EntityFrameworkCore.PostgreSql": {
               "target": "Package",
               "version": "[5.0.7, )"

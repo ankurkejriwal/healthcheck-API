@@ -11,12 +11,9 @@ namespace healthcheck.API.Migrations
                 name: "Servers",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "text", nullable: false),
-                    Name = table.Column<string>(type: "text", nullable: true),
-                    IsOnline = table.Column<bool>(type: "boolean", nullable: false),
-                    ResponseTime = table.Column<int>(type: "integer", nullable: false),
-                    ResponseUnits = table.Column<string>(type: "text", nullable: true),
-                    ResponseCode = table.Column<string>(type: "text", nullable: true)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -24,18 +21,17 @@ namespace healthcheck.API.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "User",
+                name: "Urls",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(type: "text", nullable: true),
-                    Email = table.Column<string>(type: "text", nullable: true),
-                    province = table.Column<string>(type: "text", nullable: true)
+                    ServerName = table.Column<string>(type: "text", nullable: true),
+                    URL = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_User", x => x.Id);
+                    table.PrimaryKey("PK_Urls", x => x.Id);
                 });
         }
 
@@ -45,7 +41,7 @@ namespace healthcheck.API.Migrations
                 name: "Servers");
 
             migrationBuilder.DropTable(
-                name: "User");
+                name: "Urls");
         }
     }
 }

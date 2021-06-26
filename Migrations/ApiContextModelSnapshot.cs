@@ -20,22 +20,12 @@ namespace healthcheck.API.Migrations
 
             modelBuilder.Entity("healthcheck.API.Models.Server", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("text");
-
-                    b.Property<bool>("IsOnline")
-                        .HasColumnType("boolean");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("Name")
-                        .HasColumnType("text");
-
-                    b.Property<string>("ResponseCode")
-                        .HasColumnType("text");
-
-                    b.Property<int>("ResponseTime")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("ResponseUnits")
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -43,25 +33,22 @@ namespace healthcheck.API.Migrations
                     b.ToTable("Servers");
                 });
 
-            modelBuilder.Entity("healthcheck.API.Models.User", b =>
+            modelBuilder.Entity("healthcheck.API.Models.UrlModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<string>("Email")
+                    b.Property<string>("ServerName")
                         .HasColumnType("text");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("text");
-
-                    b.Property<string>("province")
+                    b.Property<string>("URL")
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.ToTable("User");
+                    b.ToTable("Urls");
                 });
 #pragma warning restore 612, 618
         }
