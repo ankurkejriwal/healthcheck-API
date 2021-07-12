@@ -62,7 +62,7 @@
             },
             "Newtonsoft.json": {
               "target": "Package",
-              "version": "[*, )"
+              "version": "[13.0.1, )"
             },
             "npgsql.EntityFrameworkCore.PostgreSql": {
               "target": "Package",

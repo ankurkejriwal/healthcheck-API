@@ -9,7 +9,7 @@ using healthcheck.API.Models;
 namespace healthcheck.API.Migrations
 {
     [DbContext(typeof(ApiContext))]
-    [Migration("20210626205236_IntialMigration")]
+    [Migration("20210712193132_IntialMigration")]
     partial class IntialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
