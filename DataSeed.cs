@@ -1,78 +1,180 @@
+using healthcheck.API.Models;
 using System.Collections.Generic;
 using System.Linq;
-using healthcheck.API.Models;
 
-namespace healthcheck.Api{
-    public class DataSeed{
-
+namespace healthcheck.API
+{
+    public class DataSeed
+    {
         private readonly ApiContext _ctx;
-        
+
         public DataSeed(ApiContext ctx)
         {
             _ctx = ctx;
         }
 
-        public void SeedData(int nServers, int nUsers){
-            if(!_ctx.Servers.Any()){
-                SeedServers(nUsers);
-            }
-            if(!_ctx.Urls.Any()){
-                SeedUrls(nServers);
-            }
-            _ctx.SaveChanges();
+        private static List<string> states = Helpers.states;
 
+        public void SeedData(int nCustomers, int nOrders)
+        {
+            if (!_ctx.Customers.Any())
+            {
+                SeedCustomers(nCustomers);
+                _ctx.SaveChanges();
+            }
+
+            if (!_ctx.Orders.Any())
+            {
+                SeedOrders(nOrders);
+                _ctx.SaveChanges();
+            }
+
+            if (!_ctx.Servers.Any())
+            {
+                SeedServers();
+                _ctx.SaveChanges();
+            }
         }
 
-        private void SeedServers(int n){
-            List<Server> servers = BuildServerList();
+        internal void SeedCustomers(int n)
+        {
+            var customers = BuildCustomerList(n);
 
-            foreach(var server in servers){
+            foreach (var customer in customers)
+            {
+                _ctx.Customers.Add(customer);
+            }
+        }
+
+        internal void SeedOrders(int n)
+        {
+            var orders = BuildOrderList(n);
+
+            foreach (var order in orders)
+            {
+                _ctx.Orders.Add(order);
+            }
+        }
+
+        internal void SeedServers()
+        {
+            var servers = BuildServerList();
+
+            foreach (var server in servers)
+            {
                 _ctx.Servers.Add(server);
-            }  
+            }
         }
 
+        internal static List<Customer> BuildCustomerList(int n)
+        {
+            var customers = new List<Customer>();
 
-         private void SeedUrls(int n){
-            List<UrlModel> urls = BuildUrlList();
+            for (var i = 1; i <= n; i++)
+            {
+                var name = Helpers.MakeCustomerName();
 
-            foreach(var url in urls){
-                _ctx.Urls.Add(url);
-            }  
-        }
-
-        private List<Server> BuildServerList(){
-            
-            List<Server> servers = new List<Server>();
-
-            var ServerSeed = new List<string>{"uapvvp11","uapvvp11","uapwsp11","uapwsp14"};
-
-            for(int i = 0; i<=ServerSeed.Count(); i++){
-                servers.Add(new Server{
+                customers.Add(new Customer
+                {
                     Id = i,
-                    Name = ServerSeed[i]
+                    Name = name,
+                    State = Helpers.GetRandom(states),
+                    Email = Helpers.MakeEmail(name)
                 });
             }
 
-            return servers;
+            return customers;
         }
 
-        private List<UrlModel> BuildUrlList(){
-            
-            List<UrlModel> urls = new List<UrlModel>();
+        internal List<Order> BuildOrderList(int n)
+        {
+            var orders = new List<Order>();
 
-            var UrlSeed = new List<string>{"silver-lu.rbcgam.com","silver.rbcadvisorservices.com","silver.rbcsfc.com","silver.rbc.com"};
+            for (var i = 1; i <= n; i++)
+            {
+                var placed = Helpers.GetRandOrderPlaced();
+                var completed = Helpers.GetRandOrderCompleted(placed);
 
-            for(int i = 0; i<=UrlSeed.Count(); i++){
-                urls.Add(new UrlModel{
+                orders.Add(new Order
+                {
                     Id = i,
-                    ServerName = "uapvvp11",
-                    URL = UrlSeed[i]
+                    Customer = Helpers.GetRandomCustomer(_ctx),
+                    OrderTotal = Helpers.GetRandomOrderTotal(),
+                    Placed = placed,
+                    Completed = completed
                 });
             }
 
-            return urls;
+            return orders;
         }
 
+        internal static List<Server> BuildServerList()
+        {
+            return new List<Server>()
+            {
+                new Server
+                {
+                    Id = 1,
+                    Name = "Dev-Web",
+                    IsOnline = true
+                },
 
+                new Server
+                {
+                    Id = 2,
+                    Name = "Dev-Analysis",
+                    IsOnline = true
+                },
+
+                new Server
+                {
+                    Id = 3,
+                    Name = "Dev-Mail",
+                    IsOnline = true
+                },
+
+                new Server
+                {
+                    Id = 4,
+                    Name = "QA-Web",
+                    IsOnline = true
+                },
+
+                new Server
+                {
+                    Id = 5,
+                    Name = "QA-Analysis",
+                    IsOnline = true
+                },
+
+                new Server
+                {
+                    Id = 6,
+                    Name = "QA-Mail",
+                    IsOnline = true
+                },
+
+                new Server
+                {
+                    Id = 7,
+                    Name = "Prod-Web",
+                    IsOnline = true
+                },
+
+                new Server
+                {
+                    Id = 8,
+                    Name = "Prod-Analysis",
+                    IsOnline = true
+                },
+
+                new Server
+                {
+                    Id = 9,
+                    Name = "Prod-Mail",
+                    IsOnline = true
+                },
+            };
+        }
     }
 }
