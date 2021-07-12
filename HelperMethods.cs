@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Advantage.API.Demo.Models;
+using healthcheck.API.Models;
 using System.Linq;
 
 namespace healthcheck.API
