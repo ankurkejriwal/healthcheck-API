@@ -1,6 +1,5 @@
 /Users/ankurkejriwal/Desktop/Workspace/healthcheck.API/bin/Debug/netcoreapp3.1/appsettings.Development.json
 /Users/ankurkejriwal/Desktop/Workspace/healthcheck.API/bin/Debug/netcoreapp3.1/appsettings.json
-/Users/ankurkejriwal/Desktop/Workspace/healthcheck.API/bin/Debug/netcoreapp3.1/Properties/launchSettings.json
 /Users/ankurkejriwal/Desktop/Workspace/healthcheck.API/bin/Debug/netcoreapp3.1/healthcheck.API.deps.json
 /Users/ankurkejriwal/Desktop/Workspace/healthcheck.API/bin/Debug/netcoreapp3.1/healthcheck.API.runtimeconfig.json
 /Users/ankurkejriwal/Desktop/Workspace/healthcheck.API/bin/Debug/netcoreapp3.1/healthcheck.API.runtimeconfig.dev.json
@@ -59,7 +58,6 @@
 /Users/ankurkejriwal/Desktop/Workspace/healthcheck.API/bin/Debug/netcoreapp3.1/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.pdb
 /Users/ankurkejriwal/Desktop/Workspace/healthcheck.API/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
 /Users/ankurkejriwal/Desktop/Workspace/healthcheck.API/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
-/Users/ankurkejriwal/Desktop/Workspace/healthcheck.API/obj/Debug/netcoreapp3.1/healthcheck.API.csprojAssemblyReference.cache
 /Users/ankurkejriwal/Desktop/Workspace/healthcheck.API/obj/Debug/netcoreapp3.1/healthcheck.API.AssemblyInfoInputs.cache
 /Users/ankurkejriwal/Desktop/Workspace/healthcheck.API/obj/Debug/netcoreapp3.1/healthcheck.API.AssemblyInfo.cs
 /Users/ankurkejriwal/Desktop/Workspace/healthcheck.API/obj/Debug/netcoreapp3.1/healthcheck.API.csproj.CoreCompileInputs.cache
@@ -71,3 +69,5 @@
 /Users/ankurkejriwal/Desktop/Workspace/healthcheck.API/obj/Debug/netcoreapp3.1/healthcheck.API.dll
 /Users/ankurkejriwal/Desktop/Workspace/healthcheck.API/obj/Debug/netcoreapp3.1/healthcheck.API.pdb
 /Users/ankurkejriwal/Desktop/Workspace/healthcheck.API/obj/Debug/netcoreapp3.1/healthcheck.API.genruntimeconfig.cache
+/Users/ankurkejriwal/Desktop/Workspace/healthcheck.API/obj/Debug/netcoreapp3.1/healthcheck.API.csproj.AssemblyReference.cache
+/Users/ankurkejriwal/Desktop/Workspace/healthcheck.API/obj/Debug/netcoreapp3.1/scopedcss/bundle/healthcheck.API.styles.css
