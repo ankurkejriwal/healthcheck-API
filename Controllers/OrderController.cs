@@ -1,4 +1,4 @@
-using Advantage.API.Demo.Models;
+using healthcheck.API.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
